@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 
-// import our main App component
 import App from "../../src/layout/Root";
 
 const path = require("path");
@@ -16,7 +15,6 @@ export default (req, res, next) => {
     }
     // render the app as a string
     const html = ReactDOMServer.renderToString(<App />);
-    // inject the rendered app into our html and send it
     return res.send(
       htmlData.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
     );

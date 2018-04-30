@@ -1,4 +1,4 @@
-const autoprefixer = require("autoprefixer");
+// const autoprefixer = require("autoprefixer");
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -175,27 +175,17 @@ module.exports = {
                       options: {
                         importLoaders: 1,
                         minimize: true,
-                        sourceMap: shouldUseSourceMap
+                        modules: true,
+                        sourceMap: shouldUseSourceMap,
+                        localIdentName: "[name]__[local]___[hash:base64:4]"
                       }
                     },
                     {
                       loader: require.resolve("postcss-loader"),
                       options: {
-                        // Necessary for external CSS imports to work
-                        // https://github.com/facebookincubator/create-react-app/issues/2677
-                        ident: "postcss",
-                        plugins: () => [
-                          require("postcss-flexbugs-fixes"),
-                          autoprefixer({
-                            browsers: [
-                              ">1%",
-                              "last 4 versions",
-                              "Firefox ESR",
-                              "not ie < 9" // React doesn't support IE8 anyway
-                            ],
-                            flexbox: "no-2009"
-                          })
-                        ]
+                        config: {
+                          path: paths.postcssConfig
+                        }
                       }
                     }
                   ]
@@ -278,7 +268,8 @@ module.exports = {
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
-      filename: cssFilename
+      filename: cssFilename,
+      allChunks: true
     }),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
