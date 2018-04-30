@@ -88,7 +88,8 @@ module.exports = {
     alias: {
       store: path.resolve(paths.appSrc, "store"),
       layout: path.resolve(paths.appSrc, "layout"),
-      components: path.resolve(paths.appSrc, "components")
+      components: path.resolve(paths.appSrc, "components"),
+      utils: path.resolve(paths.appSrc, "utils")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
