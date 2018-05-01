@@ -1,7 +1,8 @@
 import {
   MOVIES_FETCHING,
   MOVIES_FULFILLED,
-  MOVIES_REJECTED
+  MOVIES_REJECTED,
+  SET_MESSAGE
 } from "../actionTypes";
 
 const initialState = {
@@ -37,6 +38,12 @@ const movies = (state = initialState, action) => {
         fulfilled: false,
         rejected: true,
         message: "DET BLEV EN ERROR"
+      };
+
+    case SET_MESSAGE:
+      return {
+        ...state,
+        message: action.message
       };
 
     default:
