@@ -23,7 +23,7 @@ export const contentFiltered = pipe(
         title: view(itemTitleLens, item),
         productionYear: view(itemProductionYearLens, item),
         imdbUrl: view(itemIMDBUrlLens, item),
-        bgImage: view(bgImageLens, item).replace(
+        bgImageUrl: view(bgImageLens, item).replace(
           /{.*}/,
           "?width=500&height=500"
         )

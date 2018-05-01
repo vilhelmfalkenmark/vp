@@ -1,3 +1,12 @@
+@import "variables/sizes";
+@import "mixins/grid";
+
 .container {
-  color: orange;
+  @mixin contentContainer;
+
+  margin-top: var(--double-default-gutter);
+}
+
+.list {
+  @mixin flexRow var(--default-gutter);
 }

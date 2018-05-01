@@ -2,17 +2,9 @@
   /* App colors */
   --color-white: #fff;
   --color-black: #000;
+  --color-brand: rgb(34, 45, 52);
   --color-text: #535964;
-  --color-text-light: #696969;
-  --color-yellow: #e8c030;
-  --color-pink: #f358a1;
-  --color-red: #e63929;
-  --color-red-light: rgb(251, 123, 129);
-  --color-green: #1abc8c;
-  --color-green-light: rgb(144, 236, 184);
-  --color-blue: #00a0d5;
   --color-background: rgb(252, 247, 243);
-  --color-beige: rgb(250, 247, 245);
 
   /* Grey colors */
   --color-grey-extra-light: rgb(235, 235, 235);

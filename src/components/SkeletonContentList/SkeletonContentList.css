@@ -1,0 +1,18 @@
+@import "variables/sizes";
+@import "mixins/grid";
+
+.list {
+  @mixin flexRow var(--default-gutter);
+}
+
+.item {
+  @mixin flexGtrCol 3, var(--default-gutter);
+
+  background-color: gray;
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+}
