@@ -7,7 +7,7 @@ import {
 
 import { getRequest, API_BASE } from "../../utils/network";
 
-import { moviesFiltered } from "../../utils/selectors";
+import { contentFiltered } from "../../utils/selectors";
 
 export const setMessage = messageText => ({
   type: SET_MESSAGE,
@@ -19,12 +19,12 @@ export const fetchContent = () => {
     dispatch({ type: CONTENT_FETCHING });
     getRequest(`${API_BASE}/samtliga`)
       .then(response => {
-        const moviesFilteredTest = moviesFiltered(response);
-        console.log(moviesFilteredTest, " <-- moviesFiltered");
+        const contentFilteredTest = contentFiltered(response);
+        console.log(contentFilteredTest, " <-- contentFiltered");
 
         dispatch({
           type: CONTENT_FULFILLED,
-          response: moviesFilteredTest
+          response: contentFilteredTest
         });
       })
       .catch(err => {

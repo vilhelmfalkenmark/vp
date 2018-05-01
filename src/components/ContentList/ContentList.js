@@ -4,8 +4,6 @@ import ContentListTypes from "./ContentList.propTypes";
 
 class ContentList extends Component {
   componentWillMount() {
-    // this.props.fetchContent();
-    this.props.setMessage("Hejsan från klient component will mount");
     this.props.fetchContent();
   }
   render() {
@@ -19,6 +17,6 @@ class ContentList extends Component {
   }
 }
 
-ContentList.prototypes = ContentListTypes;
+ContentList.propTypes = ContentListTypes;
 
 export default ContentList;
