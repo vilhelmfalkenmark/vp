@@ -2,7 +2,7 @@ import express from "express";
 
 import serverRenderer from "../middleware/renderer";
 import configureStore from "../../src/store";
-import { setAsyncMessage } from "../../src/store/movies/actions";
+import { setAsyncMessage } from "../../src/store/content/actions";
 
 console.log("setMessage");
 

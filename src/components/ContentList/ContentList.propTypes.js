@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 
-const DepartureTypes = {
+const ContentTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({})),
   fetching: PropTypes.bool,
   fulfilled: PropTypes.bool,
   rejected: PropTypes.bool,
-  fetchMovies: PropTypes.func
+  fetchContent: PropTypes.func
 };
 
-export default DepartureTypes;
+export default ContentTypes;

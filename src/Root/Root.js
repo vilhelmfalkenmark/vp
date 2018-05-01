@@ -1,10 +1,10 @@
 import React from "react";
-import MovieList from "../components/MovieList";
+import ContentList from "../components/ContentList";
 import s from "./Root.css";
 
 export const Root = () => (
   <div className={s.container}>
-    <MovieList />
+    <ContentList />
   </div>
 );
 

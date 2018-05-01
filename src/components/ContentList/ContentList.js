@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import s from "./MovieList.css";
-import MovieListTypes from "./MovieList.propTypes";
+import s from "./ContentList.css";
+import ContentListTypes from "./ContentList.propTypes";
 
-class MovieList extends Component {
+class ContentList extends Component {
   componentWillMount() {
-    // this.props.fetchMovies();
+    // this.props.fetchContent();
     this.props.setMessage("Hejsan från klient component will mount");
+    this.props.fetchContent();
   }
   render() {
     const { data, fetching, rejected, fulfilled, message } = this.props;
@@ -18,6 +19,6 @@ class MovieList extends Component {
   }
 }
 
-MovieList.prototypes = MovieListTypes;
+ContentList.prototypes = ContentListTypes;
 
-export default MovieList;
+export default ContentList;

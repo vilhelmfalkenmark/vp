@@ -1,7 +1,7 @@
 import {
-  MOVIES_FETCHING,
-  MOVIES_FULFILLED,
-  MOVIES_REJECTED,
+  CONTENT_FETCHING,
+  CONTENT_FULFILLED,
+  CONTENT_REJECTED,
   SET_MESSAGE
 } from "../actionTypes";
 
@@ -10,28 +10,28 @@ const initialState = {
   fetching: false,
   fulfilled: false,
   rejected: false,
-  data: []
+  data: {}
 };
 
-const movies = (state = initialState, action) => {
+const content = (state = initialState, action) => {
   switch (action.type) {
-    case MOVIES_FETCHING:
+    case CONTENT_FETCHING:
       return {
         ...state,
         fetching: true,
         message: action.message
       };
 
-    case MOVIES_FULFILLED:
+    case CONTENT_FULFILLED:
       return {
         ...state,
         fetching: false,
         fulfilled: true,
         message: "FÄRDIGHÄMTAD",
-        data: [...action.payload]
+        data: { ...action.response }
       };
 
-    case MOVIES_REJECTED:
+    case CONTENT_REJECTED:
       return {
         ...state,
         fetching: false,
@@ -51,4 +51,4 @@ const movies = (state = initialState, action) => {
   }
 };
 
-export default movies;
+export default content;
