@@ -4,13 +4,20 @@ import promise from "redux-promise-middleware";
 
 import rootReducer from "./rootReducer";
 
-const reduxDevTools =
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-
 const createStoreWithMiddleware = compose(applyMiddleware(promise(), thunk))(
   createStore
 );
 
+// Let configureStore accept a parameter so we can pass initialState from the server
 export default function configureStore(initialState = {}) {
-  return createStoreWithMiddleware(rootReducer, initialState, reduxDevTools);
+  if (process.env.NODE_ENV !== "production") {
+    return createStoreWithMiddleware(
+      rootReducer,
+      initialState
+      // window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      //   window.__REDUX_DEVTOOLS_EXTENSION__()
+    );
+  }
+
+  return createStoreWithMiddleware(rootReducer, initialState);
 }
