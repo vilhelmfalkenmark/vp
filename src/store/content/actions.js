@@ -5,7 +5,7 @@ import {
   SET_MESSAGE
 } from "../actionTypes";
 
-import { getRequest, API_BASE } from "../../utils/network";
+import { getRequest } from "../../utils/network";
 
 import { contentFiltered } from "../../utils/selectors";
 
@@ -17,14 +17,11 @@ export const setMessage = messageText => ({
 export const fetchContent = () => {
   return function(dispatch) {
     dispatch({ type: CONTENT_FETCHING });
-    getRequest(`${API_BASE}/samtliga`)
+    getRequest("samtliga")
       .then(response => {
-        const contentFilteredTest = contentFiltered(response);
-        console.log(contentFilteredTest, " <-- contentFiltered");
-
         dispatch({
           type: CONTENT_FULFILLED,
-          response: contentFilteredTest
+          response: contentFiltered(response)
         });
       })
       .catch(err => {

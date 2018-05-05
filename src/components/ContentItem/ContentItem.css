@@ -1,15 +1,18 @@
 @import "variables/sizes";
 @import "mixins/grid";
+@import "mixins/breakpoints";
 
 .container {
-  @mixin flexGtrCol 3, var(--default-gutter);
-
+  @mixin flexGtrCol 1, var(--default-gutter);
   position: relative;
+  height: 30rem;
 
-  &:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
+  @media (--viewport-min-768) {
+    @mixin flexGtrCol 2, var(--default-gutter);
+  }
+
+  @media (--viewport-min-960) {
+    @mixin flexGtrCol 3, var(--default-gutter);
   }
 }
 

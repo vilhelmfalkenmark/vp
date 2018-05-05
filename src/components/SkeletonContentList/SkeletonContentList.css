@@ -1,18 +1,111 @@
 @import "variables/sizes";
-@import "mixins/grid";
+@import "mixins/skeleton";
+@import "mixins/breakpoints";
+
+.container {
+  width: 100%;
+  height: 90rem;
+  position: relative;
+  background-color: var(--skeleton-background);
+}
 
 .list {
-  @mixin flexRow var(--default-gutter);
+  @mixin skeleton var(--skeleton-background), var(--skeleton-gradient), 90rem,
+    100%;
+
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 }
 
 .item {
-  @mixin flexGtrCol 3, var(--default-gutter);
+  position: absolute;
+  width: calc(100% + var(--half-default-gutter));
+  border-bottom: var(--default-gutter) solid var(--color-background);
+  border-left: var(--default-gutter) solid var(--color-background);
+  border-right: var(--default-gutter) solid var(--color-background);
+  height: 30rem;
 
-  background-color: gray;
+  @media (--viewport-min-768) {
+    width: calc(50% + var(--half-default-gutter));
+  }
 
-  &:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
+  @media (--viewport-min-960) {
+    width: calc(33.33% + var(--half-default-gutter));
+  }
+}
+/* 
+------------------------------------------------------
+Row 1 desktop
+------------------------------------------------------
+*/
+.r1c1 {
+  top: 0;
+  left: 0;
+}
+
+.r1c2 {
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.r1c3 {
+  top: 0;
+  right: 0;
+}
+/* 
+------------------------------------------------------
+Row 2 desktop
+------------------------------------------------------
+*/
+.r2c1 {
+  top: 30rem;
+  left: 0;
+}
+
+.r2c2 {
+  top: 30rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.r2c3 {
+  top: 30rem;
+  right: 0;
+}
+/* 
+------------------------------------------------------
+Row 2 desktop
+------------------------------------------------------
+*/
+.r3c1 {
+  top: 60rem;
+  left: 0;
+}
+
+.r3c2 {
+  top: 60rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.r3c3 {
+  top: 60rem;
+  right: 0;
+}
+
+/* 
+------------------------------------------------------
+Hidden middle blocks on tablet
+------------------------------------------------------
+*/
+@media (--viewport-min-768-max-959) {
+  .r1c2,
+  .r2c2,
+  .r3c2 {
+    display: none;
   }
 }

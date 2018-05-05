@@ -10,7 +10,7 @@ const contentTitleLens = lensPath(["title"]);
 // For each item lens
 const itemTitleLens = lensPath(["content", "series", "title"]);
 const itemProductionYearLens = lensPath(["content", "production", "year"]);
-const itemIMDBUrlLens = lensPath(["content", "imdb", "url"]);
+const itemImdbUrlLens = lensPath(["content", "imdb", "url"]);
 const bgImageLens = lensPath(["content", "images", "boxart", "template"]);
 
 export const contentFiltered = pipe(
@@ -22,7 +22,7 @@ export const contentFiltered = pipe(
       item => ({
         title: view(itemTitleLens, item),
         productionYear: view(itemProductionYearLens, item),
-        imdbUrl: view(itemIMDBUrlLens, item),
+        imdbUrl: view(itemImdbUrlLens, item),
         bgImageUrl: view(bgImageLens, item).replace(
           /{.*}/,
           "?width=500&height=500"

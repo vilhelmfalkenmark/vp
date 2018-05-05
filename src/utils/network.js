@@ -1,21 +1,18 @@
-const TIME_OUT = 30000;
+import axios from "axios";
+
+const API_TIME_OUT = 30000;
 export const API_BASE = "https://content.viaplay.se/pc-se/serier";
 
-let fetchTimeout = new Promise((resolve, reject) => {
-  let wait = setTimeout(() => {
-    clearTimeout(wait);
-    resolve("Time out");
-  }, TIME_OUT);
+const asyncRequest = axios.create({
+  baseURL: API_BASE,
+  timeout: API_TIME_OUT
 });
 
-export const getRequest = url =>
-  Promise.race([
-    fetch(url, {
-      type: "GET"
-    })
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => console.error(error)),
-    fetchTimeout
-  ]);
+export const getRequest = path =>
+  asyncRequest
+    .get(path)
+    .then(({ data }) => data)
+    .catch(error => {
+      console.error("Error in getRequest -->", error);
+      return error;
+    });

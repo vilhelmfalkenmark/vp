@@ -5,10 +5,7 @@ import promise from "redux-promise-middleware";
 import rootReducer from "./rootReducer";
 
 const reduxDevTools =
-  typeof window === "object"
-    ? window.__REDUX_DEVTOOLS_EXTENSION__ &&
-      window.__REDUX_DEVTOOLS_EXTENSION__()
-    : () => null;
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 const createStoreWithMiddleware = compose(applyMiddleware(promise(), thunk))(
   createStore
