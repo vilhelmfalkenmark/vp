@@ -3,12 +3,7 @@ import s from "./ContentItem.css";
 
 const ContentItem = ({ item }) => (
   <li className={s.container}>
-    <figure
-      className={s.backgroundImage}
-      style={{
-        backgroundImage: `url(${item.bgImageUrl})`
-      }}
-    />
+    <img src={item.imageUrl} className={s.image} alt={item.title} />
   </li>
 );
 

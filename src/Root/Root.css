@@ -16,6 +16,10 @@ body {
   color: var(--color-text);
   line-height: 1.5;
   text-size-adjust: 100%;
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 }
 
 *,

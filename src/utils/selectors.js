@@ -11,7 +11,7 @@ const contentTitleLens = lensPath(["title"]);
 const itemTitleLens = lensPath(["content", "series", "title"]);
 const itemProductionYearLens = lensPath(["content", "production", "year"]);
 const itemImdbUrlLens = lensPath(["content", "imdb", "url"]);
-const bgImageLens = lensPath(["content", "images", "boxart", "template"]);
+const bgImageLens = lensPath(["content", "images", "landscape", "template"]);
 
 export const contentFiltered = pipe(
   view(blocksLens),
@@ -23,9 +23,9 @@ export const contentFiltered = pipe(
         title: view(itemTitleLens, item),
         productionYear: view(itemProductionYearLens, item),
         imdbUrl: view(itemImdbUrlLens, item),
-        bgImageUrl: view(bgImageLens, item).replace(
+        imageUrl: view(bgImageLens, item).replace(
           /{.*}/,
-          "?width=500&height=500"
+          "?width=500&height=280" // 1.78 / 0.5625 inverted aspect ratio
         )
       }),
       view(productsLens, block)

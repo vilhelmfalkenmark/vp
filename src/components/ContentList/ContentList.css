@@ -4,6 +4,7 @@
 .container {
   @mixin contentContainer;
 
+  flex: 1 0 auto;
   margin-top: var(--double-default-gutter);
 }
 

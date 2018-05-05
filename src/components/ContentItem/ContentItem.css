@@ -4,24 +4,21 @@
 
 .container {
   @mixin flexGtrCol 1, var(--default-gutter);
-  position: relative;
-  height: 30rem;
 
-  @media (--viewport-min-768) {
+  @media (--viewport-min-480) {
     @mixin flexGtrCol 2, var(--default-gutter);
   }
 
   @media (--viewport-min-960) {
     @mixin flexGtrCol 3, var(--default-gutter);
   }
+
+  @media (--viewport-min-1200) {
+    @mixin flexGtrCol 4, var(--default-gutter);
+  }
 }
 
-.backgroundImage {
-  position: absolute;
-
-  height: 100%;
+.image {
+  height: auto;
   width: 100%;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
 }

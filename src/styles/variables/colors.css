@@ -1,20 +1,11 @@
 :root {
   /* App colors */
   --color-white: #fff;
-  --color-black: #000;
   --color-brand: rgb(34, 45, 52);
   --color-text: #535964;
   --color-background: rgb(252, 247, 243);
 
-  /* Grey colors */
-  --color-grey: rgb(155, 155, 155);
-
-  /* Component colors */
+  /* Skeleton colors */
   --skeleton-gradient: #d3d3d3;
   --skeleton-background: #b8b8b8;
-
-  /* Transparent grey. Used for shadow drops and hover effects */
-  --color-shadow: rgba(0, 0, 0, 0.75);
-  --color-overlay: rgba(0, 0, 0, 0.5);
-  --color-transparent-grey: rgba(175, 175, 175, 0.3);
 }

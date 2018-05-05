@@ -3,7 +3,9 @@
   --default-gutter: 2rem;
   --double-default-gutter: 2rem;
 
-  --content-max-width: 96rem;
+  --content-max-width: 120rem;
+
+  --image-aspect-ratio: 56.25%;
 
   --font-size-xs: 0.8rem;
   --font-size-s: 0.9rem;

@@ -4,6 +4,7 @@
 .container {
   width: 100%;
   background-color: var(--color-brand);
+  flex-shrink: 0;
 }
 
 .inner {
@@ -15,7 +16,7 @@
   height: 8rem;
 }
 
-.logo {
-  height: auto;
-  width: 15rem;
+.copy {
+  font-size: 1.4rem;
+  color: var(--color-white);
 }
