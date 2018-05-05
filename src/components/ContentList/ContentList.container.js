@@ -1,21 +1,18 @@
 import { connect } from "react-redux";
-import { fetchContent, setMessage } from "../../store/content/actions";
+import { fetchContent } from "../../store/content/actions";
 import ContentList from "./ContentList";
 
 const mapStateToProps = state => ({
   data: state.content.data,
-  message: state.content.message,
   fetching: state.content.fetching,
   fulfilled: state.content.fulfilled,
-  rejected: state.content.rejected
+  rejected: state.content.rejected,
+  message: state.content.message
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchContent: () => {
     dispatch(fetchContent());
-  },
-  setMessage: message => {
-    dispatch(setMessage(message));
   }
 });
 

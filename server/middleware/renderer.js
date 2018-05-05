@@ -3,7 +3,7 @@ import ReactDOMServer from "react-dom/server";
 import Loadable from "react-loadable";
 import { Provider } from "react-redux";
 
-// import our main App component
+// import our main Root component
 import App from "../../src/Root";
 
 const path = require("path");
@@ -30,17 +30,17 @@ export default store => (req, res, next) => {
       </Loadable.Capture>
     );
 
-    // get the stringified state
     const reduxState = JSON.stringify(store.getState());
 
-    // now inject the rendered app into our html and send it to the client
+    // console.log(html, " <-- html från server");
+    // console.log(reduxState, " <-- reduxState från server");
+
     return res.send(
       htmlData
         // write the React app
         .replace('<div id="root"></div>', `<div id="root">${html}</div>`)
         // write the string version of our state
         .replace("__REDUX_STATE__={}", `__REDUX_STATE__=${reduxState}`)
-      // append the extra js assets
     );
   });
 };

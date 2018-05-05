@@ -17,7 +17,7 @@ class ContentList extends Component {
   }
 
   markup() {
-    const { data, fetching, rejected, fulfilled } = this.props;
+    const { data, fetching, rejected, fulfilled, message } = this.props;
     if (fetching) {
       return <SkeletonContentList />;
     } else if (!fetching && fulfilled && !rejected) {
@@ -27,7 +27,7 @@ class ContentList extends Component {
         </ul>
       );
     }
-    return <p>Något gick fel</p>;
+    return <p>{message}</p>;
   }
 
   render() {

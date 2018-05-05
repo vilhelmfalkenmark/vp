@@ -8,14 +8,13 @@ const createStoreWithMiddleware = compose(applyMiddleware(promise(), thunk))(
   createStore
 );
 
-// Let configureStore accept a parameter so we can pass initialState from the server
 export default function configureStore(initialState = {}) {
   if (process.env.NODE_ENV !== "production") {
     return createStoreWithMiddleware(
       rootReducer,
-      initialState,
-      window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__()
+      initialState
+      // window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      //   window.__REDUX_DEVTOOLS_EXTENSION__()
     );
   }
 

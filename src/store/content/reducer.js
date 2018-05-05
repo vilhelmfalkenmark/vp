@@ -1,13 +1,12 @@
 import {
   CONTENT_FETCHING,
   CONTENT_FULFILLED,
-  CONTENT_REJECTED,
-  SET_MESSAGE
+  CONTENT_REJECTED
 } from "../actionTypes";
 
 const initialState = {
   message: "",
-  fetching: false,
+  fetching: true,
   fulfilled: false,
   rejected: false,
   data: {}
@@ -18,8 +17,7 @@ const content = (state = initialState, action) => {
     case CONTENT_FETCHING:
       return {
         ...state,
-        fetching: true,
-        message: action.message
+        fetching: true
       };
 
     case CONTENT_FULFILLED:
@@ -27,7 +25,6 @@ const content = (state = initialState, action) => {
         ...state,
         fetching: false,
         fulfilled: true,
-        message: "FÄRDIGHÄMTAD",
         data: { ...action.response }
       };
 
@@ -37,13 +34,8 @@ const content = (state = initialState, action) => {
         fetching: false,
         fulfilled: false,
         rejected: true,
-        message: "DET BLEV EN ERROR"
-      };
-
-    case SET_MESSAGE:
-      return {
-        ...state,
-        message: action.message
+        message:
+          action.response || "Det blev en generisk error utan felmeddelande"
       };
 
     default:

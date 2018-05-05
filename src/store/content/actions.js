@@ -1,18 +1,12 @@
 import {
   CONTENT_FETCHING,
   CONTENT_FULFILLED,
-  CONTENT_REJECTED,
-  SET_MESSAGE
+  CONTENT_REJECTED
 } from "../actionTypes";
 
 import { getRequest } from "../../utils/network";
 
 import { contentFiltered } from "../../utils/selectors";
-
-export const setMessage = messageText => ({
-  type: SET_MESSAGE,
-  message: messageText
-});
 
 export const fetchContent = () => {
   return function(dispatch) {
@@ -29,9 +23,3 @@ export const fetchContent = () => {
       });
   };
 };
-
-// Test purpose only for SSR
-export const setAsyncMessage = messageText => dispatch =>
-  new Promise((resolve, reject) => {
-    setTimeout(() => resolve(), 200);
-  }).then(() => dispatch(setMessage(messageText)));

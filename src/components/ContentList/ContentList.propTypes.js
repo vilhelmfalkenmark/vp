@@ -9,6 +9,7 @@ const ContentTypes = {
       })
     )
   }),
+  message: PropTypes.string,
   fetching: PropTypes.bool,
   fulfilled: PropTypes.bool,
   rejected: PropTypes.bool,
