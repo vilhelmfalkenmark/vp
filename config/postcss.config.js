@@ -1,4 +1,5 @@
 const path = require("path");
+const autoprefixer = require("autoprefixer");
 
 /**
  * PostCSS Load Config
@@ -50,5 +51,9 @@ module.exports = ctx => ({
      * https://github.com/MoOx/postcss-cssnext
      */
     "postcss-cssnext": {}
+  },
+  autoprefixer: {
+    browsers: [">1%", "last 4 versions", "Firefox ESR", "not ie < 9"],
+    flexbox: "no-2009"
   }
 });

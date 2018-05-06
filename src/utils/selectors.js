@@ -1,7 +1,5 @@
 import { lensPath, lensIndex, view, pipe, map } from "ramda";
 
-// LENS PATHS
-
 // Outer lenses
 const blocksLens = lensPath(["_embedded", "viaplay:blocks"]);
 const productsLens = lensPath(["_embedded", "viaplay:products"]);
@@ -32,3 +30,5 @@ export const contentFiltered = pipe(
     )
   })
 );
+
+export default contentFiltered;

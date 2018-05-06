@@ -4,7 +4,7 @@ import {
   CONTENT_REJECTED
 } from "../actionTypes";
 
-const initialState = {
+export const initialState = {
   message: "",
   fetching: true,
   fulfilled: false,
