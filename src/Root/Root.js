@@ -1,14 +1,11 @@
 import React from "react";
-import Header from "../components/Header";
-import ContentList from "../components/ContentList";
-import Footer from "../components/Footer";
+import MovieList from "../components/MovieList";
 import s from "./Root.css";
 
 export const Root = () => (
   <div className={s.container}>
-    <Header />
-    <ContentList />
-    <Footer />
+    <h4 className={s.test}>HEJ!</h4>
+    <MovieList />
   </div>
 );
 

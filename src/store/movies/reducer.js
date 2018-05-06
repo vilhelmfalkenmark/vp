@@ -1,41 +1,42 @@
 import {
-  CONTENT_FETCHING,
-  CONTENT_FULFILLED,
-  CONTENT_REJECTED
+  MOVIES_FETCHING,
+  MOVIES_FULFILLED,
+  MOVIES_REJECTED
 } from "../actionTypes";
 
 const initialState = {
   message: "",
-  fetching: true,
+  fetching: false,
   fulfilled: false,
   rejected: false,
-  data: {}
+  data: []
 };
 
-const content = (state = initialState, action) => {
+const movies = (state = initialState, action) => {
   switch (action.type) {
-    case CONTENT_FETCHING:
+    case MOVIES_FETCHING:
       return {
         ...state,
-        fetching: true
+        fetching: true,
+        message: action.message
       };
 
-    case CONTENT_FULFILLED:
+    case MOVIES_FULFILLED:
       return {
         ...state,
         fetching: false,
         fulfilled: true,
-        data: { ...action.response }
+        message: "FÄRDIGHÄMTAD",
+        data: [...action.payload]
       };
 
-    case CONTENT_REJECTED:
+    case MOVIES_REJECTED:
       return {
         ...state,
         fetching: false,
         fulfilled: false,
         rejected: true,
-        message:
-          action.response || "Det blev en generisk error utan felmeddelande"
+        message: "DET BLEV EN ERROR"
       };
 
     default:
@@ -43,4 +44,4 @@ const content = (state = initialState, action) => {
   }
 };
 
-export default content;
+export default movies;

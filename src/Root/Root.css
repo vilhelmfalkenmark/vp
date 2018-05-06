@@ -2,11 +2,14 @@
 @import "normalize";
 
 html {
+  position: relative;
   height: 100%;
   width: 100%;
   font-size: 62.5%; /* So we get 1rem = 10px */
 }
 body {
+  overflow: hidden;
+  position: absolute;
   height: 100%;
   width: 100%;
 }
@@ -15,11 +18,8 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   line-height: 1.5;
-  text-size-adjust: 100%;
   min-height: 100vh;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
+  text-size-adjust: 100%;
 }
 
 *,

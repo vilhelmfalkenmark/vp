@@ -81,7 +81,12 @@ module.exports = {
     // `web` extension prefixes have been added for better support
     // for React Native Web.
     extensions: [".web.js", ".mjs", ".js", ".json", ".web.jsx", ".jsx"],
-    alias: {},
+    alias: {
+      store: path.resolve(paths.appSrc, "store"),
+      layout: path.resolve(paths.appSrc, "layout"),
+      components: path.resolve(paths.appSrc, "components"),
+      utils: path.resolve(paths.appSrc, "components")
+    },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
       // This often causes confusion because we only process files within src/ with babel.
@@ -206,9 +211,7 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
-    new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
-    }),
+    new webpack.DefinePlugin(env.stringified),
     // This is necessary to emit hot updates (currently CSS only):
     new webpack.HotModuleReplacementPlugin(),
     // Watcher doesn't work well if you mistype casing in a path so we use
